@@ -74,6 +74,10 @@ class Image(models.Model):
     #user = models.ForeignKey(User, default=None, on_delete=models.SET_NULL,null=True)
     image = models.ImageField(upload_to=get_image_filename,
                               verbose_name='Image')
+
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+    
     #LatLong 
     lat = models.DecimalField('lat',max_digits=8, decimal_places=6,null=True)
     lng = models.DecimalField('lng',max_digits=9, decimal_places=6,null=True)
